@@ -71,7 +71,7 @@
                             <th>Nhà xuất bản</th>
                             <th>Tác giả</th>
                             <th>Số lượng</th>
-                            <th>Số lượng đã thanh lý</th>
+                            <th>Số phát hành</th>
                             <th>Giá</th>
                             <td>Trạng thái</td>
                             <th>Hành động</th>
@@ -135,7 +135,8 @@
                                             0
                                         @endif
                                     </td>
-                                    <td>{{ $book->b_amount_liquidated !== NULL ? $book->b_amount_liquidated : 0  }}</td>
+                                    <td>{{$book->ib_issue_number    }}</td>
+                                    {{-- <td>{{ $book->b_amount_liquidated !== NULL ? $book->b_amount_liquidated : 0  }}</td> --}}
                                     <td>{{ !empty($book->b_price) ? number_format($book->b_price, 0, ',', '.') . 'vnđ' : '' }}</td>
                                     <td>
                                         @if($book->b_status == 1)
