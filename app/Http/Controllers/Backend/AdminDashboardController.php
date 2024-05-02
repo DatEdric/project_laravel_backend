@@ -30,7 +30,7 @@ class AdminDashboardController extends Controller
         $totalBookLiquidated = $amountLiquidated + $amountOrderLiquidated;
 
         $newImportBook = ImportBook::with('book:id,b_name')->orderByDesc('created_at')->limit(30)->get();
-        $readersViolated = Order::with('reader:id,r_name', 'book:id,b_name')->whereIn('d_status', [3, 4])->orWhere('d_expiry_date', '<', date('Y-m-d'))->orderByDesc('id')->limit(30)->get();
+        $readersViolated = Order::with('reader:id,r_name', 'book:id,b_name')->whereIn('d_status', [3,4])->orWhere('d_expiry_date', '<', date('Y-m-d'))->orderByDesc('id')->limit(30)->get();
         $readersBorrowing = Order::with('reader:id,r_name', 'book:id,b_name')->where('d_status', 1)->orWhere('d_expiry_date', '>', date('Y-m-d'))->orderByDesc('id')->limit(30)->get();
         $viewData = [
             'amountReader' => $amountReader,
@@ -62,7 +62,7 @@ class AdminDashboardController extends Controller
                 return response([
                     'code' => 405,
                     'total_book' => $totalBook,
-                    'message' => 'Số lượng sách trong kho không đủ để mượn : ' . $totalBook
+                    'message' => 'Số lượng sách trong kho không đủ để mượn : '. $totalBook
                 ]);
             } else {
                 return response([

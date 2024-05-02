@@ -79,7 +79,7 @@
         <div class="col-md-6">
             <div class="box my-custom-scrollbar" style="height: 300px;">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Sách mới nhập</h3>
+                    <h3 class="box-title"></h3>
                 </div>
                 <div class="box-body">
                     <table class="table table-bordered table-sm" id="imported_books">
@@ -87,7 +87,7 @@
                             <th style="width: 10px">#</th>
                             <th>Tên sách</th>
                             <th>Số lượng</th>
-                            <th>Issue Number</th>
+                            <th>Số phát hành</th>
                             <th>Tạo</th>
                         </tr>
                         @if($newImportBook)

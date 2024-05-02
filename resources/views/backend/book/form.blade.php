@@ -72,7 +72,7 @@
                 </div>
             @endif
             <div class="form-group {{ $errors->first('image') ? 'has-error' : '' }} ">
-                <label for="inputEmail3" class="control-label default">HÌnh ảnh</label>
+                <label for="inputEmail3" class="control-label default">Hình ảnh</label>
                 <div>
                     <input type="file" class="form-control" name="image">
                     <span class="text-danger "><p class="mg-t-5">{{ $errors->first('image') }}</p></span>

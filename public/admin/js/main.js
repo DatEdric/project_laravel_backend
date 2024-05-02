@@ -71,6 +71,7 @@ var init_function = {
             var location = $('table#table-import-product tr:last').attr('location');
             var url = $('table#table-import-product').attr('url');
             var action = $('table#table-import-product').attr('actiontable');
+            // đây e gọi call ajax ở đây
             $.ajax({
                 url: url,
                 type: 'GET',
@@ -88,6 +89,7 @@ var init_function = {
         $(".btn_preview_borrow").click(function (event) {
             event.preventDefault();
             let url = $(this).attr('href');
+            // đây e gọi call ajax ở đây
             $.ajax({
                 url: url,
                 type: 'GET',
@@ -244,7 +246,7 @@ $(function () {
             alert('Vui lòng chọn sách cần mượn');
             $(this).val(0);
         }
-
+        // đây e gọi call ajax ở đây
         $.ajax({
             url: check_book,
             type: 'GET',

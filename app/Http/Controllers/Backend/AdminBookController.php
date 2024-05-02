@@ -11,6 +11,7 @@ use App\Models\Book;
 use App\Models\PublishingCompany;
 use App\Http\Requests\BookRequest;
 use App\Helpers\HelpersFun;
+use App\Models\Order;
 
 class AdminBookController extends Controller
 {
@@ -139,6 +140,10 @@ class AdminBookController extends Controller
         $book = Book::findOrFail($id);
         if (!$book) {
             return redirect()->route('get.list.book')->with('danger', 'Dữ liệu không tồn tại..');
+        }
+        $orders = Order::where(['d_book_id' => $book->id, 'd_status' => 1])->count();
+        if ($orders > 0) {
+            return redirect()->route('get.list.book')->with('danger', 'Sách đang được cho mượn không thể xóa');
         }
         try {
             $book->delete();
